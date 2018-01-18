@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts, amssymb, amsthm}
+\usepackage{tikz}
+
+\title{PS03-01}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\begin{tikzpicture}[scale=0.2]
+\tikzstyle{every node}+=[inner sep=0pt]
+\draw [black] (26.6,-26.9) circle (3);
+\draw (26.6,-26.9) node {${p}$};
+\draw [black] (26.6,-26.9) circle (2.4);
+\draw [black] (43,-26.9) circle (3);
+\draw (43,-26.9) node {${p,q}$};
+\draw [black] (43,-26.9) circle (2.4);
+\draw [black] (26.6,-38.9) circle (3);
+\draw (26.6,-38.9) node {${q}$};
+\draw [black] (26.6,-38.9) circle (2.4);
+\draw [black] (18.1,-26.9) -- (23.6,-26.9);
+\fill [black] (23.6,-26.9) -- (22.8,-26.4) -- (22.8,-27.4);
+\draw [black] (29.6,-26.9) -- (40,-26.9);
+\fill [black] (40,-26.9) -- (39.2,-26.4) -- (39.2,-27.4);
+\draw (34.8,-27.4) node [below] {$0$};
+\draw [black] (40,-26.9) -- (29.6,-26.9);
+\fill [black] (29.6,-26.9) -- (30.4,-27.4) -- (30.4,-26.4);
+\draw (34.8,-26.4) node [above] {$0$};
+\draw [black] (40.58,-28.67) -- (29.02,-37.13);
+\fill [black] (29.02,-37.13) -- (29.96,-37.06) -- (29.37,-36.25);
+\draw (33.65,-32.4) node [above] {$1$};
+\draw [black] (28.405,-41.282) arc (64.88553:-223.11447:2.25);
+\draw (28.49,-46.13) node [below] {$1$};
+\fill [black] (25.81,-41.78) -- (25.02,-42.29) -- (25.92,-42.72);
+\end{tikzpicture}
+\end{center}
+
+\end{document}
