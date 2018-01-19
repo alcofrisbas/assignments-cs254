@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts, amssymb, amsthm}
+\usepackage{enumitem,color}
+\title{PS03-03}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}[label=\alph*.]
+	\item $\alpha = 1^*(01^*0)1^*$
+	\item $\beta = 0^*10^*(10^*1)0^*$
+	\item $\gamma = \alpha \cup \beta$
+	\item This took several steps for me.\\
+	I wanted to continue with the same idea: initialize with
+	either an odd or even number($\alpha$ was even, $\beta$ odd)
+	and then provide infinite permutations which consisted of an even number of both ones and zeroes.
+
+	$\delta = (00)^*(1 \cup 010)\big(
+	(00 \cup 11 \cup 1010 \cup 0101)^*\cup
+	1(00 \cup 11 \cup 1010 \cup 0101)^*1\cup
+	0(00 \cup 11 \cup 1010 \cup 0101)^*0\big)$
+
+	The first section $(00)^*\{1 \cup 010 \cup 1\}$ makes sure
+	that the string starts with as many even 0s and one 1.\\
+	The next section loops over all possibilities of combinations of 1s and 0s. It's split into three to take into account one final 0 or 1.
+
+\end{enumerate}
+\end{document}

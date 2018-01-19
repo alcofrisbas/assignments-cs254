@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts, amssymb, amsthm}
+\usepackage{enumitem,color}
+\title{PS03-05}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent\textit{Given: } A language $L = \{a^nb^mc^l:n,m,l > 0 
+\text{ and }n^2 + m^2 = l^2\}$\\
+\textit{Prove: } $L$ is not regular.
+\begin{proof}
+I will begin by playing a game with a demon.\\
+Demon: $k \geq 0$\\
+Me: $w = a^{3k}b^{4k}b^{5k}$\\
+Demon: $w = xyz, \mid xy \mid \leq k, \mid y \mid > 0$\\
+Me: $t = 23$
+
+Since $\mid xy \mid \leq k$, $y$ must be solely composed
+of a's. This means that if we apply $y$ 22 more times,
+the ratio of $n$ to $m$ to $l$ will be incorrect.
+
+$\therefore xyz \notin L$.\\
+\end{proof}
+\end{document}
