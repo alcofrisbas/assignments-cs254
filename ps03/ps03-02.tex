@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS03-02}
+\date{\today}
+
+\begin{document}
+\maketitle
+\noindent\textit{Given: }\\ 
+\textit{Prove: }\\
+\begin{proof}
+	Let N be an NFA such that $L(N) = A$.\\
+	$N = \langle Q_N, \Sigma, \delta_N, S_N, F_N \rangle$\\
+	where $\hat{\delta}(X, w) = Y \text{ and } X,Y \in Q_N$\\
+	(and N accepts $w$ iff $Y \cap F_N \neq \varnothing$\\
+	
+	\noindent Let $N_R$ be an NFA that recognizes reverse($A$).\\
+	$N_R = \langle Q_{N_R}, \Sigma \delta_{N_R}, S_{N_R}, F_{N_R} \rangle$\\
+	where $Q_{n_R} = Q_N \cup \{q_s\}$,\\
+	$\delta_{N_R}(q_s, \varepsilon) = F_N$,\\
+	$\delta_{N_R}(Y, w) = X$,\\
+	$S_{N_R} = \{q_s\}$,\\
+	$F_{N_R} = S_N$, and\\
+	$N_R$ accepts $w$ iff $Y \cap F_{N_R} \neq \varnothing$\\
+
+	\noindent Begin by induction on $\mid w \mid$.\\
+	\begin{enumerate}[label=\roman*.]
+		\item Base Case: $\mid w \mid = 0$. By definition, $w = \varepsilon$
+		The reverse of empty string equals empty string.
+		\item Inductive Case: $\mid w \mid = n$.\\
+		Let $w = xa$\\
+		$N$ accepts $xa$ iff $\hat{\delta}_N(\hat{\delta}_N(S_N, x), a) \cap F_N \neq \varnothing$\\
+		Therefore, $N_R$ accepts reverse($w$)\big(= reverse($xa$) = a $\circ$ reverse($x$)\big) iff\\
+		$\hat{\delta}_{N_R}(\hat{\delta}_{N_R}(S_{N_R}, a), x) \cap F_{N_R} \neq \varnothing$, where $S_{N_R} = \{q_s\}$.\\
+			By the definitions of $\delta_N$ and $\delta_{N_R}$, since $a$ represents the first step in the reverse path of $w$, since by IH, we can assume that reverse holds for $\mid w \mid < n$, and since $\mid x\mid = n-1$, $\exists$ a machine $N_R$ that can express reverse(A). Therefore, if $A$ is a regular language, reverse($A$) is also a regular language.
+	\end{enumerate}
+\end{proof}
+\end{document}
