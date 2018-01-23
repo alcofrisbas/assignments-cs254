@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS04-03}
+\date{\today}
+
+\begin{document}
+\maketitle
+Consider grammar $G$:
+\begin{align*}
+    S &\rightarrow ABS | AB\\
+    A &\rightarrow aA | a\\
+    B &\rightarrow bA.
+\end{align*}
+
+\begin{enumerate}[label=\alph*.]
+    \item Are the following strings in $L(G)$?
+    \begin{enumerate}[label=\roman*.]
+        \item \textit{aabaab} $\notin L(G)$. This is because the only terminal in $G$ is $a$.
+        \item \textit{aaaaba} $S \rightarrow AB \rightarrow aAB \rightarrow aaAB \rightarrow aaaAB \rightarrow aaaaB \rightarrow aaaabA \rightarrow aaaaba$.
+        \item \textit{aabbaa} $\notin L(G)$. This is because a $b$ is always
+        followed by an $a$ (rule $S$). If there are two $b$s in a string in
+        this language, there are always at least 2 $a$s in between.
+        \item \textit{abaaba} $S \rightarrow ABS \rightarrow aBS \rightarrow abAS \rightarrow abaS \rightarrow abaAB \rightarrow abaaB \rightarrow abaabA \rightarrow abaaba$.
+    \end{enumerate}
+    \item $L(G) = \{\}$ %do this part! ask gales
+\end{enumerate}
+
+\end{document}
