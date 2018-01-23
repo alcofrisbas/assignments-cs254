@@ -1,10 +1,36 @@
 \documentclass{article}
 \usepackage{amsmath, amsfonts, amssymb, amsthm}
+<<<<<<< HEAD
 \usepackage{enumitem, tikz}
 
 \title{PS0}
+=======
+\usepackage{enumitem}
+
+\title{PS04-01}
+>>>>>>> a14171945dd0eadf0843cb94cdb34d875c6917d9
 \date{\today}
 
 \begin{document}
 \maketitle
+<<<<<<< HEAD
+=======
+\begin{enumerate}[label=\alph*.]
+	\item \textit{Given: } A language $A$ homomorphically defined as $A := \{01^n2^n3 : n \geq 0\}$.\\
+	\textit{Prove: } A is a non-regular language.
+	\begin{proof}
+	I will begin by playing a game with a demon.\\
+	Demon: $k \geq 0$\\
+	Me: $w = 01^k2^k3$\\
+	Demon: $w = xyz, \mid xy \mid \leq k, \mid y \mid > 0$\\
+	Me: t = 17\\
+	Since $\mid xy \mid < k$, $y$ must conist of all 1s. Therefore $xy^tz \notin A$ because the number of 1s and 2s must be equal. Therefore, by the pumping lemma, $A$ is a non-regular language. 
+	\end{proof}
+	\item CFG for A:\\
+	\begin{align*}
+		S &\rightarrow 0A3\\
+		A &\rightarrow 1A2 \mid \varepsilon
+	\end{align*}
+\end{enumerate}
+>>>>>>> a14171945dd0eadf0843cb94cdb34d875c6917d9
 \end{document}
