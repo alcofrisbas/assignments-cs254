@@ -9,7 +9,7 @@
 \maketitle
 
 \begin{enumerate}[label=\alph*.]
-	\item Proof \#1: While 
+	\item Proof \#1: While step $i$ is correct in that a finite automaton would recognize a string of a's or b's of any length $n$, the error lies in the second step, because the machine cannot keep track of the number of a's. You cannot prove regularity using closure unless the language you are trying to prove is a member of the regular closure operation and the other two languages are regular.
 	\item Proof \#2: This proof is in error because of the definition of closure. By our definition in class, if S is closed under an operation, for $a, b \in S$, that operation($a,b$) is also in $S$. Specified here is a closed operation on TWO languages yielding a regular language, while proof 2 specifies $i$ languages, which is invalid.
 	\item Proof \#3: This proof is in error because the closure rule of intersection is not bidirectional. Using closure to prove that a language is regular can only be done when the language in question is part of a closure expression and both its pair AND the resulting languages are regular. \\Ex: $B$ is proven regular in this situation: $A$ and $C$ are regular AND $A \cap B = C$.
 \end{enumerate}
