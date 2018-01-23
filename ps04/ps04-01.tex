@@ -1,10 +1,21 @@
 \documentclass{article}
 \usepackage{amsmath, amsfonts, amssymb, amsthm}
-\usepackage{enumitem, tikz}
+\usepackage{enumitem}
 
-\title{PS0}
+\title{PS04-01}
 \date{\today}
 
 \begin{document}
 \maketitle
+\begin{enumerate}[label=\alph*.]
+	\item \textit{Given: } A language $A$ homomorphically defined as $A := \{01^n2^n3 : n \geq 0\}$.\\
+	\textit{Prove: } A is a non-regular language.
+	\begin{proof}
+	\end{proof}
+	\item CFG for A:\\
+	\begin{align*}
+		S &\rightarrow 0A3\\
+		A &\rightarrow 1A2 \mid \varepsilon
+	\end{align*}
+\end{enumerate}
 \end{document}
