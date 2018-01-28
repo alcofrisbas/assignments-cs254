@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath, amsfonts, amssymb, amsthm}
-\usepackage{enumitem, tikz}
+\usepackage{enumitem, tikz, mathtools}
 
 \title{PS04-03}
 \date{\today}
@@ -24,7 +24,9 @@ Consider grammar $G$:
         this language, there are always at least 2 $a$s in between.
         \item \textit{abaaba} $S \rightarrow ABS \rightarrow aBS \rightarrow abAS \rightarrow abaS \rightarrow abaAB \rightarrow abaaB \rightarrow abaabA \rightarrow abaaba$.
     \end{enumerate}
-    \item $L(G) = \{\}$ %do this part! ask gales
+    \item $G = \langle V, \Sigma, R, S \rangle$,\\
+    $L(G) = \{w \in \Sigma^* : S \xRightarrow[]{\text{*}} w\}$\\
+    $L(G) = \{a^{i_1}ba^{j_1} \cdot... \cdot a^{i_n}ba^{j_n} : i,j,n > 0\}$ %do this part! ask gales
 \end{enumerate}
 
 \end{document}
