@@ -21,7 +21,24 @@
 	A &\rightarrow a\\
 	B &\rightarrow b \mid bB
 	\end{align*}
-	\item a%ak bm cn:k,m,n≥1,2k≥n
+	\item $\{a^kb^mc^n:k,m,n \geq 1,2k \geq n\}$
+	My CFG for this(original, not Chomsky-ified):
+	\begin{align*}
+	S &\rightarrow AScc \mid ABcc\\
+	A &\rightarrow AA \mid a\\
+	B &\rightarrow BB \mid b
+	\end{align*}
+	Now, in Chomsky Normal Form:
+	\begin{align*}
+	S &\rightarrow AD \mid AE\\
+	T &\rightarrow AD \mid AE\\
+	A &\rightarrow AA \mid a\\
+	B &\rightarrow BB \mid b\\
+	C &\rightarrow FF\\
+	D &\rightarrow SC\\
+	E &\rightarrow BC\\
+	F &\rightarrow c\\
+	\end{align*}
 	\item $\{a,b\}^*-\{palindromes\}$
 	\begin{align*}
 	S &\rightarrow XSX \mid N\\
@@ -29,6 +46,28 @@
 	R &\rightarrow XRX \mid X \mid \varepsilon\\
 	X &\rightarrow a\mid b
 	\end{align*}
-
+	\item Using union, I will create a double-barrel CFG. One side will match $x\#y$ of mismatching size, and the other will reliably match $x\#y$ of the same length mismatching in the $i$th character. I say reliably, because sometimes when the strings are different lengths, it doesn't let them through. However, since I will union the two mini-CFGs, the different length CFG \textit{will} let them through.\\
+	CFG for language A: $\{x\#y: |x| \neq  |y|\}$
+	\begin{align*}
+	S_A &\rightarrow XSX \mid A\# \mid \#A\\
+	A &\rightarrow AX \mid X\\
+	X &\rightarrow 0 \mid 1
+	\end{align*}
+	CFG for language B: $\{x\#y: x_i \neq y_i\}$
+	\begin{align*}
+	S_B &\rightarrow R^1T^1 \mid R^0T^0\\
+	R^1 &\rightarrow XR^1X \mid 1Y\#\\
+	T^1 &\rightarrow 0Y\\
+	R^0 &\rightarrow XR^0X \mid 0Y\#\\
+	T^0 &\rightarrow 1Y\\
+	X &\rightarrow 0 \mid 1\\
+	Y &\rightarrow YX \mid \varepsilon
+	\end{align*}
+	Where $R^1$ and $T^1$ detect $i$1...\#$i$0... and $R^0$ and $T^0$ detect $i$0...\#$i$1...\\
+	If we take the union of these CFGs(by problem 5):
+	\begin{align*}
+	S &\rightarrow S_A \mid S_B
+	\end{align*}
+	then the result will recognize either $\{x\#y: |x| \neq  |y|\}$ or $\{x\#y: x_i \neq y_i\}$, which means that the strings that the CFG recognizes will be in the language $\{x\#y : x \neq y\}$.
 \end{enumerate}
 \end{document}
