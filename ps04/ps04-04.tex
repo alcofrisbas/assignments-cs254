@@ -2,9 +2,33 @@
 \usepackage{amsmath, amsfonts, amssymb, amsthm}
 \usepackage{enumitem, tikz}
 
-\title{PS0}
+\title{PS04-04}
 \date{\today}
 
 \begin{document}
 \maketitle
+
+\begin{enumerate}[label=\alph*.]
+	\item $\{a^nb^{2n}c^k : n,k \geq 1\}$
+	\begin{align*}
+	S &\rightarrow NC\\
+	C &\rightarrow Cc \mid c\\
+	N &\rightarrow abb \mid aNbb\\
+	\end{align*}
+	\item $\{a^nb^ka^n : n,k \geq 1\}$
+	\begin{align*}
+	S &\rightarrow aSA \mid aBA\\
+	A &\rightarrow a\\
+	B &\rightarrow b \mid bB
+	\end{align*}
+	\item a%ak bm cn:k,m,n≥1,2k≥n
+	\item $\{a,b\}^*-\{palindromes\}$
+	\begin{align*}
+	S &\rightarrow XSX \mid N\\
+	N &\rightarrow aRb \mid bRa\\
+	R &\rightarrow XRX \mid X \mid \varepsilon\\
+	X &\rightarrow a\mid b
+	\end{align*}
+
+\end{enumerate}
 \end{document}
