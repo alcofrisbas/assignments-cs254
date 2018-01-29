@@ -2,9 +2,26 @@
 \usepackage{amsmath, amsfonts, amssymb, amsthm}
 \usepackage{enumitem, tikz}
 
-\title{PS0}
+\title{PS04-05: Closures}
 \date{\today}
 
 \begin{document}
 \maketitle
+
+Let $A$ and $B$ be two CFLs with start variable $S_A$ and $S_B$, respectively.
+\begin{enumerate}
+	\item Union. Given $A$ and $B$, let $C$ be a CFL with a grammar as follows:
+	\begin{align*}
+	S &\rightarrow S_A | S_B
+	\end{align*}
+	\item Concatenation.Given $A$ and $B$, let $C$ be a CFL with a grammar as follows:
+	\begin{align*}
+	S &\rightarrow S_AS_B
+	\end{align*}
+	\item Star. Given $A$ let $C$ be a CFL with a grammar as follows:
+	\begin{align*}
+	S &\rightarrow S_AS |\varepsilon
+	\end{align*}
+\end{enumerate}
+
 \end{document}
