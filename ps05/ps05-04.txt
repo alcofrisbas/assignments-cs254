@@ -1,0 +1,136 @@
+a)------------------------------
+; Binary addition - adds two binary numbers
+; Input: two binary numbers, separated by a single space, eg '100 1110'
+; go right until the end
+; of the first number
+0 _ _ r 1
+0 * * r 0
+; continue right until
+; the end of the second
+; number
+1 _ _ l 2
+1 * * r 1
+; take the last digit of
+; of the second number and 
+; bring it left. if there is nothing
+; begin rewriting x and y
+; placeholders as 0 and 1(7)
+2 0 _ l 3x
+2 1 _ l 3y
+2 _ _ l 7
+; continue bringing the 
+; last 0 of the second
+; number left
+3x _ _ l 4x
+3x * * l 3x
+; same as 3x but with 1
+3y _ _ l 4y
+3y * * l 3y
+; properly settle the digit
+; based on carrying
+4x 0 x r 0
+4x 1 y r 0
+4x _ x r 0
+4x * * l 4x    ; skip the x/y's
+; same as 4x, but with 
+; the opposite digits
+4y 0 1 * 5
+4y 1 0 l 4y
+4y _ 1 * 5
+4y * * l 4y    ; skip the x/y's
+; help with carrying
+; not necessary with 0 digit
+; because nothing gets changed/carried
+5 x x l 6
+5 y y l 6
+5 _ _ l 6
+5 * * r 5
+; rewrite 0s and 1s in carrying 
+; situations so that the machine will
+; pass them over later
+; and start over with the next digit
+6 0 x r 0
+6 1 y r 0
+; when its all over,
+; rewrite xs as 0s and ys as 1s
+; halt on space bc there's only 1 number now
+7 x 0 l 7
+7 y 1 l 7
+7 _ _ r halt
+7 * * l 7
+b)------------------------------
+1. Scan to the end of both numbers.
+2. if the last digit is a 0,(delete it)
+	- go back to the last digit of the first
+	  number and mark it as an x for 0, y for 1
+   if the last digit is a 1,(delete it)
+   	- go back to the last digi of the first number
+   	  and incorporate it using carrying, then mark
+   	  all the digits right of the head with xs and
+   	  ys, respectively.
+3. repeat 2 until the second number is gone
+4. replace all the xs and ys with 0s and 1s
+5. end
+c)------------------------------
+;takes 3 numbers space separated, adds the first pair, then compares the remaining two numbers to see if they are equal
+
+0 _ _ r 1
+0 * * r 0
+1 _ _ l 2
+1 * * r 1
+2 0 _ l 3x
+2 1 _ l 3y
+2 _ _ l 7
+3x _ _ l 4x
+3x * * l 3x
+3y _ _ l 4y
+3y * * l 3y
+4x 0 x r 0
+4x 1 y r 0
+4x _ x r 0
+4x * * l 4x    ; skip the x/y's
+4y 0 1 * 5
+4y 1 0 l 4y
+4y _ 1 * 5
+4y * * l 4y    ; skip the x/y's
+5 x x l 6
+5 y y l 6
+5 _ _ l 6
+5 * * r 5
+6 0 x r 0
+6 1 y r 0
+
+7 x 0 l 7
+7 y 1 l 7
+7 _ [ r s
+7 * * l 7
+
+8 _ _ r 8
+8 1 _ r 9a
+8 0 _ r 9b
+8 ] _ * halt-accept
+
+s _ _ r s2
+s * * r s
+
+s2 _ _ r s2
+s2 * * r s3
+
+s3 _ ] l re
+s3 * * r s3
+
+9a _ _ r 10a
+9a * * r 9a
+9b _ _ r 10b
+9b * * r 9b
+
+10a _ _ r 10a
+10a 1 _ r re
+10a 0 _ * halt-reject 
+
+10b _ _ r 10b
+10b 0 _ r re
+10b 1 _ * halt-reject 
+
+re [ [ r 8
+re * * l re

@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS05-02}
+\date{\today}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Mark the ends of $w$ with directional end markers.
+\item Scan $w$ until there is a 1. Mark it blank.\\
+If at this point, $w$ is empty or does not contain 1s, accept.
+\item Continue scanning until there is a 0. Mark it blank.\\
+If there are no more 0s, then accept
+\item Continue scanning until there is another 0. Mark it blank. \\If at this point, $w$ is empty, reject. If not repeat step 2.  
+\end{enumerate}
+Note that I included the directional end markers to enable the machine to scan in a zig zag pattern.
+\end{document}

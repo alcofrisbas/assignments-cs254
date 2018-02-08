@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS05-01}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\alph*.]
+\item $\{0^n1^m2^p3^q :n,m,p,q \geq 1 \text{ and } (n=m \text{ and } p= q)\}$\\
+The PDA would push zeros until it saw a 1. Then for every 1, it would pop a zero. If it can't pop a 0, then reject. It does this until it sees a 2. If the stack is not empty, reject. Otherwise repeat the same process with 2 and 3 respectively. Accept if the stack is empty at the end of the string. Reject otherwise
+\item $\{0^n1^m2^p3^q :n,m,p,q \geq 1 \text{ and } (n=p \text{ and } m= q)\}$\\
+This is not possible.
+\begin{proof}
+By Demon Game\\
+Demon: $k \geq 0$\\
+Me: $w = 0^k1^{k+1}2^k3^{k+1}$\\
+Demon: $w = uvxyz$ where $\lvert uy\rvert \geq 1$ and $\lvert vxy\rvert \leq k$\\
+Me: $t = 23$\\$uv^txy^tz \notin $ the CFL because no matter where $vxy$ falls, it cannot affect both number of 0s and 2s or 1s and 3s.
+\end{proof}
+\item $\{0^n1^m2^p3^q :n,m,p,q \geq 1 \text{ and } (n=q \text{ and } m=p)\}$\\
+This PDA follows the same strategy as the one in $a$. It looks and pushes 0s until it gets to a 1. Then it pushes 1s until it gets to a 2. Then, it pops 1s until it gets to a 3. If it runs out of 1s, then it rejects. If it pops a 1 while looking at a 3, it rejects. It pops 0s until it hits the end of the string. If the stack is not empty(ie the empty stack symbol), then it rejects. If there are no more 0s, but there is more string, then it rejects. Otherwise it accepts 
+\item $\{0^n1^m2^p3^q :n,m,p,q \geq 1 \text{ and } (n=p \text{ and } m=p)\}$\\
+Since q is not limited by any other variable, it is irrelevant.
+This is not a CFL because it contains 3 character repeated the same number of times.
+\begin{proof}
+By Demon Game\\
+Demon: $k \geq 0$\\
+Me: $w = 0^{2k}1^{2k}2^{2k}3^{23}$\\
+Demon: $w = uvxyz$ where $\lvert uy\rvert \geq 1$ and $\lvert vxy\rvert \leq k$\\
+Me: $t = 17$\\
+For the same reason as above, $vxy$ cannot span 3 numbers(0,1,2), so any change by pumping will be made to two next to each other(0,1 or 1,2), but not to all three, so if $n = m$, $n \neq p$ and visa versa.
+\end{proof}
+\item $\{0^n1^m2^p3^q :n,m,p,q \geq 1 \text{ and } (n=p \text{ or } m=p)\}$\\
+CFLs are closed under union, and CFL is essentially a union of one wher $n=m$ and one where $m=p$.
+\end{enumerate}
+\end{document}
