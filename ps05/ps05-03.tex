@@ -7,5 +7,17 @@
 
 \begin{document}
 \maketitle
+What languages can be recognized by Turing Machines with the option to keep the head still. Can any more be recognized...? any less?
 
+No more or less can be recognized.
+
+\begin{proof}\par
+Given Turing machine $S$, which can whose movement options are $\{L,R,S\}$ and Turing machine $M$, which is a standard Turing machine with identical states as $S$.\\
+
+$A = L(S)$ and $B = L(M)$\\
+Proof Idea: If $M$ can mimic $S$'s behaviour with a finite number of additional states, then $M$ is just as powerful as $S$, which means that $S$ has no additional function and cannot recognize any more languages than $M$.
+
+Implementation: In any place $S$ would stay, add a state to $M$, where $M$'s head moves one direction once, and returns it to where it was. Regardless of whether or not the respective transition in $S$ requires a (different)write and a stay, the return from the new state would not alter nothing on the tape. Now $M$ can read and write while effectively staying in the same tape position. Since it can exactly emulate this function, $S$ has no more function than $M$ and thus cannot recognize any more languages.
+\end{proof}
 \end{document}
+ 
