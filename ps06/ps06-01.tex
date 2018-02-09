@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS06-01}
+\date{\today}
+
+\begin{document}
+\maketitle
+Regular Languages can be recognized by Turing Machines that only go right or stay put. 
+
+Given a TM $M = \langle Q, \Sigma, \Gamma, \vdash, \_, \delta, s, t, r\rangle$, let $N$ be an NFA that recognizes the same language as $M$. Let $N = \langle Q_N, \Sigma_N, \delta_N, s_N, F_N \rangle$.\\
+Let $Q_N = Q$.\\
+Let $\delta_N(q_i,a) = q_j \text{ if } \delta(q_i, a) = \langle q_j, b, R \rangle$\\
+and $\delta_N(q_i,\varepsilon) = q_j \text{ if } \delta(q_i, a) = \langle q_j, b, S \rangle$\\
+Let $s_N = s$\\
+Let $t \in F_N \text{ and } r \notin F_N$
+
+Since there is no way for the machine to look back on what it wrote, it loses its memory capability, which means that it cannot recognize context free languages;in other words, the head is only a read head. Essentially, moving right is equivalent to consuming a character and staying put is equivalent to an epsilon transition. Therefore, any situation where the TM would stay put is Trivial.
+\end{document}
