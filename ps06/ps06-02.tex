@@ -7,4 +7,17 @@
 
 \begin{document}
 \maketitle
+\begin{enumerate}[label=\alph*]
+\item Intersection.\\
+Much like union. Given two languages $A$ and $B$, let $M_A$ and $M_B$ be two Turing machines s.t. $L(M_A) = A$ and $L(M_B) = B$.\\
+Run both simultaneously on two tracks, and if both accept, then accept
+\item Concatenate.\\
+Given two languages $A$ and $B$, let $M_A$ and $M_B$ be two Turing machines s.t. $L(M_A) = A$ and $L(M_B) = B$.\\
+Let $w$ be an input string. $w = w_1\circ w_2$
+Let $\lvert w_1 \rvert = 1$ and $\lvert w_2 \rvert = \lvert w \rvert - \lvert w_1 \rvert$
+Run $M_A$ on $w_1$ and $M_B$ on $w_2$. If both accept, accept, otherwise add 1 to $\lvert w_1 \rvert$ and try again. Keep trying, increasing $\lvert w_1 \rvert$ until accept or until the length of $w_1$ equals the length of $w_2$, at which point, reject.
+\item *\\
+This one is computationally intensive. Start the same way as concatenate. Essentially, run $M_A$ on every possible set of substrings of the input string, and if at any point, all the strings in the set accept, accept.
+\item In order to prove closure for recursive languages, you need to prove decidability for the constituent languges. In the event of $A$ not being a recursive language(just r.e.), intersection could potentially never reject, just accept and loop forever. 
+\end{enumerate}
 \end{document}
