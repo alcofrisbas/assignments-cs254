@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS08-03}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\alph*.]
+	\item Union: In machine $M$, run $x$ on $M_1$. If it rejects, reject. If it accepts, accept. If it accepts, accept. Since both languages run in polynomial time, so does their sum of steps.
+	\item intersection: In machine $M$, run $x$ on $M_1$. If it rejects, reject. If it accepts, run $x$ on $M_2$. If it accepts, accept. 
+	\item concatenation.
+	Given input $x$, we need to split x into two substrings, $x_1$ and $x_2$, then test if each is in each of the component languages. We start at $x_1 = \varepsilon$, and add chars to $x_1$ until $\lvert x_1 \rvert = \lvert x \rvert$, so we end up runnning $M_1$ on $x_1$ and $M_2$ on $x_2$ $\lvert x \rvert$ times, resulting in an $O(n^{k+1})$ time.
+	\item complement.
+	Assuming that the language in question is decidable, machine $M_cmp$ is identical to $M$, except that that the accept and reject states are switched. This runs in the same time. 
+	\item star. Construct machine $M$.
+	on input $w$:\\
+	if $w = \varepsilon$, accept.\\
+	otherwise, using breadth first
+\end{enumerate}
+\end{document}
