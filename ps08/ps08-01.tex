@@ -1,0 +1,14 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS08-01}
+\date{\today}
+\begin{document}
+\maketitle
+$T(n) := \{A : \exists \text{ a TM } M s.t. L(M) = A\ \&\ M \text{ runs in } O(n)\text{ time.}\}$
+\begin{proof}
+There are two aspects to this proof. Part one was proven in class. We know based on class content that any Regular language can be represented decidably by a Turing Machine.\\
+Next, since a DFA only makes one transition per input character its runtime is solely dependent on the length of the input $x$(with length $n$), and linearly so. 
+\end{proof}
+\end{document}
