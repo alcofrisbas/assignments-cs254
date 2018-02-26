@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS07-06}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{proof}
+By contradiction\\
+Suppose for the sake of contradiction that there exists a TM that can compute $f(k)$ and call it $F$.\\
+$F$ on input $1^n$ writes $f(n)$ 1s on the tape.\\
+Construct another TM $M$ that always halts on a blank input. This machine will:
+\begin{enumerate}
+	\item write $n$ 1s on the tape
+	\item double the number of 1s
+	\item run $F$ on input $1^{2n}$
+\end{enumerate}
+\textbf{Lemma}: $f$ is a strictly increasing function.
+\begin{proof}
+Let $M$ be a TM with $q$ states. At its most efficient, $M$ will generate $n$ 1s. Let $M'$ be a TM with $q+1$ states. If $M'$ first $q$ states are identical to $M$(with the exception of the accept state), then it will generate $n$ 1s. With the addition of the extra state, $M'$ can generate 1 more 1, resulting in $n+1$ 1s. This means that, without any restructuring a machine with $q+1$ states can provably generate more 1s than a machine with $q$ states.
+\end{proof}
+With this in mind, we tally up the states in $M$. We now know that it will take at most $n$ states to print out $n$ 1s. For step two, we can use an algorithm, which uses a constant number of states, as does running F. The number of states in $M$ is $n+c$. This means that $f(n+c) \geq f(2n)$ because in running $M$, we doubled the number of 1s and should hold true $\forall n$. However, when $n$ is greater than $c$, then $f(n+c) < f(2n)$(lemma: $f$ is strictly increasing). Thus: A contradiction!
+\end{proof}
+\end{document}

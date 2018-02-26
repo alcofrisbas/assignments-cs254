@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS07-04}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{proof} by contradiction
+Suppose for the sake of contradiction that $f$ is computable and the machine $F$ takes $[D, M]$ and returns $D'$ such that $L(D') = L(D)/L(M)$\\
+Let $D$ be an all-accept DFA.\\
+If $L(M) = \varnothing$, then $L(D') = \varnothing$\\
+If $L(M) \neq \varnothing$, then $L(D') = \Sigma^*$\\
+I will try to solve \textsc{E\textsubscript{TM}} using a new machine $N$. \\
+On input $[M]$:
+\begin{enumerate}
+	\item Run F on $[D, M]$
+	\item Run resulting DFA through $M_{\textsc{DFA}}\dagger$
+	\item accept if $M_{\textsc{DFA}}$ accepts, reject if $M_{\textsc{DFA}}$ rejects
+\end{enumerate}
+$\dagger$ This machine was proven recursive in class.\\
+\begin{align*}
+[M] \in \textsc{E\textsubscript{TM}} &\Leftrightarrow M \in L(N)\\
+&\Leftrightarrow L(M) = \varnothing
+\end{align*}
+\begin{align*}
+[M] \notin \textsc{E\textsubscript{TM}} &\Leftrightarrow M \notin L(N)\\
+&\Leftrightarrow L(M) \neq \varnothing
+\end{align*}
+This decides \textsc{E\textsubscript{TM}}, which is a provably non-recursive language, thus a Contradiction!
+\end{proof}
+\end{document}

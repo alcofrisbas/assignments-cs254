@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS0}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\alph*]
+	\item $A \subseteq \{0,1\}^*$ is only recursive iff $\exists$ an enumerator $E$ which enumerates $A$ in shortlex order.
+	\begin{proof}
+	\begin{enumerate}[label=\roman*]
+		\item Suppose $A$ is decidable by $M$\\
+		$E$: for $x$ in $\{0,1\}^*$:
+		\begin{itemize}
+			\item Run $M$ on $x$
+			\item If $M$ accepts. Enumerate. Else move on.
+		\end{itemize}
+		\checkmark
+		\item Suppose $E$ can enumerate $A$(in shortlex)\\
+		$M$ on input $w$
+		\begin{itemize}
+			\item enumerate $s$
+			\item if $s == w$ accept
+			else if $s>w$ reject
+			else if $s<w$ enumerate again(go back up to step 1)
+		\end{itemize}
+	\end{enumerate}
+	\end{proof}
+\end{enumerate}
+\end{document}

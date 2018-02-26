@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS07-01}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{proof}
+\noindent Let $P_1 = \{x \in \{1\}^* : x \notin L(M_x)\}$\\
+Suppose $K$ is a total TM for $P_1$. $L(K) = P_1$.\\
+Let $w = [K]$\\
+\begin{align*}
+w \in P_1 &\Leftrightarrow w \notin L(M_w) && (\text{def of }P_1)\\
+&\Leftrightarrow w \notin L(K) && (\text{def of } w \& K)\\
+w \in P_1 &\Leftrightarrow w \notin P_1 && (\text{def of }K)\\
+\end{align*}
+A contradiction!
+\end{proof}
+\end{document}

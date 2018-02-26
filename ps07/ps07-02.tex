@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS07-02}
+\date{\today}
+
+\begin{document}
+\maketitle
+Suppose that there is a a string $w$ that passes through state $q$.\\
+Let TM $R$ decide HP and TM $S$ decide \textsc{enter\textsubscript{tm}}.\\
+S: on input [$M$,$w$]:\\
+\begin{enumerate}
+	\item Run $R$ on [$M$,$w$]
+	\item if $R$ rejects, reject
+	\item if $R$ accepts, simulate $M$ until Halt.
+	\item if $M$ accepts, accept, rejects, reject.
+\end{enumerate}
+If $R$ decides \textsc{enter\textsubscript{tm}}, then $S$ decides HP, which is undecidable. Therefore, \textsc{enter\textsubscript{tm}} must also be undecidable.
+\end{document}

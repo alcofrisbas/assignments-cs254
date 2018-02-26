@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS07-03}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\alph*.]
+	\item $GT_{23} = \{$[M] : M is a TM and L(M) containts at least 23 elements$\}$.\\
+	Proving $GT_{23}$ is r.e.:
+	\begin{proof}
+	Make a machine $N$.
+	Using the interweaved method mention in class, $N$ runs all inputs on $M\ ( L(M) = GT_{23})$. Accept when $M$ has accepted 23 inputs.\end{proof}
+	Proving $GT_{23}$ is NOT recursive.
+	\begin{proof} by reduction of HP.\\
+	let ([$M$,$x$]) = ($M'$)\\
+	$M'$ on input $y$:\\
+	ignore $y$\\
+	run $M$ on $x$\\
+	Accept if $M$ halts on $x$.
+	\begin{align*}
+	[M,x] \in HP &\Rightarrow M \text{ halts on }\\
+	&\Rightarrow M' \text{ accepts all inputs }\\
+	&\Rightarrow \lvert L(M') \geq 23\\
+	&\Rightarrow M' \in GT_{23}\\
+	&\Rightarrow [M,x] \in GT_{23}\\
+	\end{align*}
+	A contradiction!
+	\end{proof}
+	\item $LT_{23} = \{$[M] : M is a TM and L(M) containts at most 23 elements$\}$.
+	Proving $LT_{23}$ is NOT r.e.:
+	\begin{proof} by reduction of $\overline{\text{HP}}$\\
+	Let ([$M$,$x$]) = ($M'$)\\
+	$M'$ on input $y$:\\
+	ignore $y$\\
+	run $M$ on $x$\\
+	Accept if $M$ halts on $x$.
+	\begin{align*}
+	[M,x] \in \overline{\text{HP}} &\Rightarrow M \text{ does not halt on }x\\
+	&\Rightarrow M' \text{ does not accept any input}\\
+	&\Rightarrow \lvert L(M') \leq 23\\
+	&\Rightarrow M' \in LT_{23}\\
+	&\Rightarrow [M,x] \in LT_{23}\\
+	\end{align*}
+	A contradiction!
+	\end{proof}
+
+\end{enumerate}
+\end{document}
