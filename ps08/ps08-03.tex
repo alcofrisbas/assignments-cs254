@@ -17,6 +17,13 @@
 	\item star. Construct machine $M$.
 	on input $w$:\\
 	if $w = \varepsilon$, accept.\\
-	otherwise, using breadth first
+	The strategy here is to check each substring to see if it belongs to A. This seems like it can only be done non-deterministically,
+	but by keeping track of the substrings and their composition, this is possible to do this deterministically in polynomial time.
+	Starting at the beginning of the string, we examine substrings. If we check both against the entire string up to  our current
+	index, as well as the substring starting from the ending of the previous valid substring, we can build substrings and, if
+	necessary, disregard trivial substrings. If the final character receives a 
+	true marking, it is because either all of the previous previous characters make up valid substrings, all in A, or because the string
+	$w$ itself is in A. Accept. If the last character in $w$ is marked as invalid, reject. This runs in polynomial time
+	because each component runs in polynomial time, and the whole algorithm is nested in 3 loops.
 \end{enumerate}
 \end{document}
