@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS09-04}
+\date{\today}
+
+\begin{document}
+\maketitle
+Make a TM $M$:\\
+on input $\langle S, t \rangle$
+\begin{enumerate}
+	\item Verify that $S$ is a set and $t$ is an int.
+	\item Send the whole $\langle S, t \rangle$ into the oracle. If it returns nothing then return ``none exists''.
+	\item If the oracle says that there exists $X$, the subset, then remove the first character from the set $S$ and run that through the oracle. 
+	\item If the oracle still says there's a subset $X$ (etc.), move on to the next number. If not, reinsert said integer and move on to the next number.
+	\item Repeat this cycle until in all remaining cases, removing a number causes the oracle to reject the set. 
+	\item Return the remaining set.
+\end{enumerate}
+At worst case, this algorithm runs twice through the set, making it a linear algorith. Verifying the format of $S$ and $t$ could take a bit longer, but it's a ptime process, making the whole process solveable in polynomial time.
+\end{document}

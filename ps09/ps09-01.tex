@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{enumitem, tikz}
+
+\title{PS09-01}
+\date{\today}
+
+\begin{document}
+\maketitle
+Make an NTM $M$. On input $\langle G, H \rangle$:\\
+\begin{enumerate}
+	\item Verify that $\lvert V \rvert = \lvert V' \rvert$ and $\lvert E\rvert = \lvert E' \rvert$.
+	\item If that is not the case, then there is no way $G$ and $H$ are \textit{isomorphic}. Reject.
+	\item We know that in order for the graphs to be isomorphic, there needs to exist a bejective function
+	that maps $V$ to $V'$. Essentially, we will ``guess'' by mapping permutations of $V$ to $V'$, then check
+	by seeing if all of the $f(u)$s and $f(v)$s behave in $E'$ like they do in $E$. If so, accept. If not, then
+	make another guess. If there are no more guesses, reject.
+\end{enumerate}
+There are three components of this algorithm. The verifying, the guessing, and the checking.\\
+The verification process involves summing and comparing the lengths of the sets, making it a linear time process.\\
+Guessing involves translating value-by-value with a bit of overhead per value, which is also a linear time process.\\
+The checking process is also linear because it involves direct, one-to-one comparison.\\ 
+In the worst case scenario, the machine will have to make ${\lvert V \rvert \choose 2}$ guesses. 
+\begin{center}
+\line(1,0){250}
+\end{center}
+\subsubsection*{Lemma: n choose 2 is $O(n^2)$}
+
+\begin{align*}
+{n \choose 2} &= \frac{n!}{(n-2)!2!}&&\\
+&= \frac{n(n-1)}{2!}&&\\
+&= n^2 && \text{disregard constants}\\
+\end{align*}
+little box.
+\begin{center}
+\line(1,0){250}
+\end{center}
+
+Which is a $O(n^2)$ operation. Therefore, this machine runs in polynomial time, which means the \textsc{GraphIso} in in NP.\\
+Box.
+\end{document}
